@@ -1,0 +1,64 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing:border-box;
+}
+/* Classi comuni */
+.app{
+    position: relative;
+    height: 100vh;
+}
+.absolute{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.horizontal{
+    display:flex;
+}
+
+.vertical{
+    display:flex;
+    flex-direction: column;
+}
+.profile-pic{
+    width: 55px;
+    
+}
+img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* background */
+.green-screen{
+    height: 20vh;
+    background-color: #009688;
+}
+.gray-screen{
+    height: 80vh;
+    background-color: #d7dbd6;
+}
+
+/* app */
+.application{
+    width: 80%;
+    min-width: 1000px;
+    height: 95%;
+    background-color: #eaeaea;
+    
+}
+
+/* contacts */
+
+.contacts-container{
+    width: 35%;
+    height: 95vh;
+    border-right: 2px solid #cfcfcf;
+}
+.personal-profile{
+    margin: .8em;
+}
