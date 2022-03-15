@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzap</title>
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     
@@ -20,7 +24,8 @@
         <div class="application absolute horizontal">
 
             <!-- parte contatti/profilo -->
-            <div class="contacts-container vertical">
+            <div class="contacts-container">
+
                 <!-- profilo -->
                 <div class="profile horizontal">
                     <div class="personal-profile horizontal">
@@ -36,6 +41,7 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+
                 <!-- alert notifiche -->
                 <div class="desktop-notification horizontal">
                     <div class="icon">
@@ -46,31 +52,69 @@
                         <a href="#" class="small-text">Attiva notifiche desktop</a>
                     </div>
                 </div>
+
+                <!-- Cerca un contatto -->
+                <div class="input-container">
+                    <div class="search-bar horizontal">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" name="search-contact" id="search-contact">
+                    </div>
+                </div>
+
                 <!-- lista contatti -->
                 <div class="main-contacts">
-                    <div class="input-container">
-                        <div class="search-bar horizontal">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat" name="search-contact" id="search-contact">
-                        </div>
-                    </div>
-                    <div class="contact">
-                        <div class="contact-profile">
-                            <div class="img-container"></div>
-                            <div class="info-contact">
-                                <div class="profile-name"></div>
-                                <div class="small-text"></div>
+                    <div class="contact horizontal active">
+                        <div class="contact-profile horizontal">
+                            <div class="img-container">
+                                <img src="img/avatar_1.jpg" alt="" class="profile-pic">
+                            </div>
+                            <div class="info-contact vertical">
+                                <div class="name">Michele</div>
+                                <div class="small-text"> Ultimo messaggio inviato</div>
                             </div>
                         </div>
-                        <div class="date"></div>   
+                        <div class="date">
+                            <div class="small-text">12:00</div>
+                        </div>   
+                    </div>
+                    <div class="contact horizontal ">
+                        <div class="contact-profile horizontal">
+                            <div class="img-container">
+                                <img src="img/avatar_2.jpg" alt="" class="profile-pic">
+                            </div>
+                            <div class="info-contact vertical">
+                                <div class="name">Fabio</div>
+                                <div class="small-text"> Ultimo messaggio inviato</div>
+                            </div>
+                        </div>
+                        <div class="date">
+                            <div class="small-text">12:00</div>
+                        </div>   
                     </div>
                 </div>
             </div>
 
             <!-- Parte chatbox -->
-            <div class="chat-box-container">
-
+            <div class="chat-container">
+                <div class="chat-info horizontal">
+                    <div class="profile-info horizontal">
+                        <div class="img-container">
+                            <img src="img/avatar_1.jpg" alt="" class="profile-pic">
+                        </div>
+                        <div class="info-contact vertical">
+                            <div>Michele</div>
+                            <div class="small-text"> Ultimo accesso alle 12:00</div>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <div class="chat-box"></div> 
             </div>
+            
         </div>
     </div>
 </body>
