@@ -73,7 +73,7 @@
                                 <div class="small-text"> Ultimo messaggio inviato</div>
                             </div>
                         </div>
-                        <div class="date">
+                        <div class="last-message">
                             <div class="small-text">12:00</div>
                         </div>   
                     </div>
@@ -87,7 +87,7 @@
                                 <div class="small-text"> Ultimo messaggio inviato</div>
                             </div>
                         </div>
-                        <div class="date">
+                        <div class="last-message">
                             <div class="small-text">12:00</div>
                         </div>   
                     </div>
@@ -112,10 +112,37 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-                <div class="chat-box"></div> 
-            </div>
-            
+                <div class="chat-box-container">
+                    <div class="chat-box vertical">
+                        <div class="message send">
+                            <div class="normal-text">
+                                Hai portato a spasso il cane?
+                            </div> 
+                            <div class="time">15:30</div>
+                        </div>
+                        <div class="message send"> 
+                            <div class="normal-text">
+                                Ricordati di stendere i panni
+                            </div>
+                            <div class="time">15:30</div>
+                        </div>
+                        <div class="message received"> 
+                            <div class="normal-text">
+                                Tutto fatto!
+                            </div>
+                            <div class="time">15:30</div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="text-input horizontal">
+                    <i class="fa-regular fa-face-angry"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" name="message-input" id="message-input">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </div>    
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -180,5 +180,59 @@
     width: 65%;
     height: 95vh;
 }
-.chat-info{
+.chat-box-container{
+    height: calc(100% - 76px - 50px);
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+}
+.chat-box{
+    padding: 3.6em 4.8em;
+}
+.message{
+    font-size: 14px;
+    
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: .8rem;
+    display: flex;
+    justify-content: space-between;
+}
+.send{
+    align-self: flex-end; 
+    background-color: #d5f9ba;
+}
+.received{
+    align-self: flex-start;
+    background-color: white;
+}
+.message .normal-text{
+    padding: .7rem 4rem 1rem 1rem;
+}
+
+.time{
+    align-self: flex-end;
+    font-size: 10px;
+    padding: .6em;
+    color: #bbc5ba;
+}
+
+.text-input{
+    background-color: #f3eeea;
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#message-input{
+    flex: 1 1 auto;
+    height: 2.3rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0 .7em;
+}
+
+.text-input i{
+    padding:0 2em;
+    font-size: 20px;
+    color: #6b7376;
 }
