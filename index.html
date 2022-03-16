@@ -129,7 +129,7 @@
                 </div>
                 <div class="text-input horizontal">
                     <i class="fa-regular fa-face-angry"></i>
-                    <input v-model="yourMessage.text" @keyup.enter="sendMessage(currentChat)" type="text" placeholder="Scrivi un messaggio" name="message-input" id="message-input">
+                    <input v-model="yourMessage.text" @keyup.enter="sendMessage(currentChat); receiveMessage(currentChat)" type="text" placeholder="Scrivi un messaggio" name="message-input" id="message-input">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>

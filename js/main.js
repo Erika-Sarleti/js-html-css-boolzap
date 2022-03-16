@@ -34,6 +34,11 @@ const app = new Vue({
             text:'',
             status: 'sent',
         },
+        otherMessage:{
+            date: '10/01/2020 15:30:55',
+            text:'',
+            status: 'received',
+        },
         contacts:[
             {
                 name:'Michele',
@@ -120,8 +125,19 @@ const app = new Vue({
            this.currentChat = i 
         },
         sendMessage(currentChat){
-            this.contacts[currentChat].push(this.yourMessage)
+            this.yourMessage.text = document.getElementById('message-input').value;
+
+            this.contacts[currentChat].messages.push({...this.yourMessage});
+            this.yourMessage.text = '';
         },
+        receiveMessage(currentChat){
+            setTimeout(() => {
+                this.otherMessage.text = 'okei',
+                this.contacts[currentChat].messages.push({...this.otherMessage});
+                
+            }, 1000);
+            this.otherMessage.text = '';
+        }
     }
 })
 
