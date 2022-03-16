@@ -61,14 +61,14 @@
                 <div class="input-container">
                     <div class="search-bar horizontal">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" name="search-contact"
+                        <input type="text" v-model="searchName" @keyup="nameFilter" placeholder="Cerca o inizia una nuova chat" name="search-contact"
                             id="search-contact">
                     </div>
                 </div>
 
                 <!-- lista contatti -->
                 <div class="main-contacts">
-                    <div v-for="(contact, i) in contacts" class="contact horizontal" @click="selectChat(i)">
+                    <div v-if="contact.active" v-for="(contact, i) in contacts" class="contact horizontal" @click="selectChat(i)">
                         <div class="contact-profile horizontal">
                             <div class="img-container">
                                 <img :src="'img/avatar' + contacts[i].image + '.jpg'" alt="" class="profile-pic">
@@ -113,18 +113,6 @@
                             </div>
                             <div class="time">{{contacts[currentChat].messages[i].date}}</div>
                         </div>
-                        <!-- <div class="message send">
-                            <div class="normal-text">
-                                Ricordati di stendere i panni
-                            </div>
-                            <div class="time">15:30</div>
-                        </div>
-                        <div class="message received">
-                            <div class="normal-text">
-                                Tutto fatto!
-                            </div>
-                            <div class="time">15:30</div>
-                        </div> -->
                     </div>
                 </div>
                 <div class="text-input horizontal">

@@ -28,6 +28,7 @@ status: 'received'
 const app = new Vue({
     el: '.app',
     data:{
+        searchName: "",
         currentChat: 0,
         yourMessage:{
             date: luxon.DateTime.now().toFormat('HH:mm'),
@@ -65,7 +66,7 @@ const app = new Vue({
             {
                 name:'Fabio',
                 image:'_2',
-                active:false,
+                active:true,
                 messages: [
                     
                 ],
@@ -73,7 +74,7 @@ const app = new Vue({
             {
                 name:'Samuele',
                 image:'_3',
-                active:false,
+                active:true,
                 messages: [
                     {
                         date:luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
@@ -85,7 +86,7 @@ const app = new Vue({
             {
                 name:'Alessandro B.',
                 image:'_4',
-                active:false,
+                active:true,
                 messages: [
                     {
                         date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
@@ -97,7 +98,7 @@ const app = new Vue({
             {
                 name:'Alessandro L.',
                 image:'_5',
-                active:false,
+                active:true,
                 messages: [
                     {
                         date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
@@ -109,7 +110,7 @@ const app = new Vue({
             {
                 name:'Claudia',
                 image:'_6',
-                active:false,
+                active:true,
                 messages: [
                     {
                         date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
@@ -137,18 +138,20 @@ const app = new Vue({
                 
             }, 1000);
             this.otherMessage.text = '';
+        },
+        nameFilter(){
+            this.contacts.forEach((element) =>{
+                if (element.name.toLowerCase().includes(this.searchName.toLowerCase())){
+                    element.active = true;
+                } else{
+                    element.active = false;
+                }
+            })
         }
     }
 })
 
 
 /*
-Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
-    -al click sul contatto
-        currentChat = contatto cliccato
-
-Click sul contatto mostra la conversazione del contatto cliccato
-Milestone 3
-Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 */
