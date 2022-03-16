@@ -49,17 +49,21 @@ const app = new Vue({
                     {
                         date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+                        menu: false,
+
                         },
                         {
                         date:luxon.DateTime.fromFormat('10/01/2020 15:50:00', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Ricordati di stendere i panni',
-                        status: 'sent'
+                        status: 'sent',
+                        menu: false,
                         },
                         {
                         date:luxon.DateTime.fromFormat('10/01/2020 16:15:22', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm') ,
                         text: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
+                        menu: false,
                         }
                 ],
             },
@@ -147,6 +151,9 @@ const app = new Vue({
                     element.active = false;
                 }
             })
+        },
+        menuDelete(currentChat, i){
+            this.contacts[currentChat].messages[i].menu = !this.contacts[currentChat].messages[i].menu;
         }
     }
 })

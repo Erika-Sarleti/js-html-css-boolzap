@@ -107,11 +107,12 @@
                 </div>
                 <div class="chat-box-container">
                     <div class="chat-box vertical" >
-                        <div v-for="(element, i) in contacts[currentChat].messages" class="message" :class="element.status == 'sent' ?'send' : 'received'">
+                        <div v-for="(element, i) in contacts[currentChat].messages" class="message" :class="element.status == 'sent' ?'send' : 'received'" @click="menuDelete(currentChat, i)">
                             <div class="normal-text">
                                 {{element.text}}
                             </div>
                             <div class="time">{{contacts[currentChat].messages[i].date}}</div>
+                            <div v-if="element.menu" class="rimuovi-elemento">ciao</div>
                         </div>
                     </div>
                 </div>
