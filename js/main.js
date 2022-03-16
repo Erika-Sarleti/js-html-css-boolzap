@@ -30,12 +30,12 @@ const app = new Vue({
     data:{
         currentChat: 0,
         yourMessage:{
-            date: '10/01/2020 15:30:55',
+            date: luxon.DateTime.now().toFormat('HH:mm'),
             text:'',
             status: 'sent',
         },
         otherMessage:{
-            date: '10/01/2020 15:30:55',
+            date: luxon.DateTime.now().toFormat('HH:mm'),
             text:'',
             status: 'received',
         },
@@ -46,17 +46,17 @@ const app = new Vue({
                 active:true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Hai portato a spasso il cane?',
                         status: 'sent'
                         },
                         {
-                        date: '10/01/2020 15:50:00',
+                        date:luxon.DateTime.fromFormat('10/01/2020 15:50:00', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Ricordati di stendere i panni',
                         status: 'sent'
                         },
                         {
-                        date: '10/01/2020 16:15:22',
+                        date:luxon.DateTime.fromFormat('10/01/2020 16:15:22', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm') ,
                         text: 'Tutto fatto!',
                         status: 'received'
                         }
@@ -76,7 +76,7 @@ const app = new Vue({
                 active:false,
                 messages: [
                     {
-                        date: '10/01/2020 16:15:22',
+                        date:luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Tutto fatto!',
                         status: 'received'
                         }
@@ -88,7 +88,7 @@ const app = new Vue({
                 active:false,
                 messages: [
                     {
-                        date: '10/01/2020 16:15:22',
+                        date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Tutto fatto!',
                         status: 'received'
                         }
@@ -100,7 +100,7 @@ const app = new Vue({
                 active:false,
                 messages: [
                     {
-                        date: '10/01/2020 16:15:22',
+                        date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Tutto fatto!',
                         status: 'received'
                         }
@@ -112,7 +112,7 @@ const app = new Vue({
                 active:false,
                 messages: [
                     {
-                        date: '10/01/2020 16:15:22',
+                        date: luxon.DateTime.fromFormat('10/01/2020 15:30:55', 'dd/MM/yy HH:mm:ss').toFormat('HH:mm'),
                         text: 'Tutto fatto!',
                         status: 'received'
                         }
