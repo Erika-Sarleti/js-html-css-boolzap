@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-    
+
 </head>
+
 <body>
     <div class="app">
         <!-- Background esterno alla chatbox -->
@@ -32,7 +36,7 @@
                         <div class="personal img-container">
                             <img src="img/avatar_io.jpg" alt="" class="profile-pic">
                         </div>
-                        
+
                         <span class="profile-name"> Sofia </span>
                     </div>
                     <div class="options">
@@ -57,39 +61,28 @@
                 <div class="input-container">
                     <div class="search-bar horizontal">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" name="search-contact" id="search-contact">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" name="search-contact"
+                            id="search-contact">
                     </div>
                 </div>
 
                 <!-- lista contatti -->
                 <div class="main-contacts">
-                    <div class="contact horizontal active">
+                    <div v-for="(contact, i) in contacts" class="contact horizontal" @click="selectChat(i)">
                         <div class="contact-profile horizontal">
                             <div class="img-container">
-                                <img src="img/avatar_1.jpg" alt="" class="profile-pic">
+                                <img :src="'img/avatar' + contacts[i].image + '.jpg'" alt="" class="profile-pic">
                             </div>
                             <div class="info-contact vertical">
-                                <div class="name">Michele</div>
-                                <div class="small-text"> Ultimo messaggio inviato</div>
+                                <div class="name">{{contact.name}}</div>
+                                <div class="small-text" v-if="contact.messages.length != 0">
+                                    {{ contact.messages[contact.messages.length-1].text }}
+                                </div>
                             </div>
                         </div>
                         <div class="last-message">
-                            <div class="small-text">12:00</div>
-                        </div>   
-                    </div>
-                    <div class="contact horizontal ">
-                        <div class="contact-profile horizontal">
-                            <div class="img-container">
-                                <img src="img/avatar_2.jpg" alt="" class="profile-pic">
-                            </div>
-                            <div class="info-contact vertical">
-                                <div class="name">Fabio</div>
-                                <div class="small-text"> Ultimo messaggio inviato</div>
-                            </div>
+                            <div class="small-text" v-if="contact.messages.length != 0">{{ contact.messages[contact.messages.length-1].date }}</div>
                         </div>
-                        <div class="last-message">
-                            <div class="small-text">12:00</div>
-                        </div>   
                     </div>
                 </div>
             </div>
@@ -113,36 +106,37 @@
                     </div>
                 </div>
                 <div class="chat-box-container">
-                    <div class="chat-box vertical">
+                    <div class="chat-box vertical" v-for="(element, i) in contacts[currentChat].messages">
                         <div class="message send">
                             <div class="normal-text">
-                                Hai portato a spasso il cane?
-                            </div> 
+                                {{element.text}}
+                            </div>
                             <div class="time">15:30</div>
                         </div>
-                        <div class="message send"> 
+                        <!-- <div class="message send">
                             <div class="normal-text">
                                 Ricordati di stendere i panni
                             </div>
                             <div class="time">15:30</div>
                         </div>
-                        <div class="message received"> 
+                        <div class="message received">
                             <div class="normal-text">
                                 Tutto fatto!
                             </div>
                             <div class="time">15:30</div>
-                        </div>
+                        </div> -->
                     </div>
-                </div> 
+                </div>
                 <div class="text-input horizontal">
                     <i class="fa-regular fa-face-angry"></i>
                     <input type="text" placeholder="Scrivi un messaggio" name="message-input" id="message-input">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
-            </div>    
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
