@@ -92,10 +92,10 @@
                 <div class="chat-info horizontal">
                     <div class="profile-info horizontal">
                         <div class="img-container">
-                            <img src="img/avatar_1.jpg" alt="" class="profile-pic">
+                            <img :src="'img/avatar' + contacts[currentChat].image + '.jpg'" alt="" class="profile-pic">
                         </div>
                         <div class="info-contact vertical">
-                            <div>Michele</div>
+                            <div>{{contacts[currentChat].name}}</div>
                             <div class="small-text"> Ultimo accesso alle 12:00</div>
                         </div>
                     </div>
@@ -106,12 +106,12 @@
                     </div>
                 </div>
                 <div class="chat-box-container">
-                    <div class="chat-box vertical" v-for="(element, i) in contacts[currentChat].messages">
-                        <div class="message send">
+                    <div class="chat-box vertical" >
+                        <div v-for="(element, i) in contacts[currentChat].messages" class="message" :class="element.status == 'sent' ?'send' : 'received'">
                             <div class="normal-text">
                                 {{element.text}}
                             </div>
-                            <div class="time">15:30</div>
+                            <div class="time">{{contacts[currentChat].messages[i].date}}</div>
                         </div>
                         <!-- <div class="message send">
                             <div class="normal-text">
@@ -129,12 +129,13 @@
                 </div>
                 <div class="text-input horizontal">
                     <i class="fa-regular fa-face-angry"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" name="message-input" id="message-input">
+                    <input v-model="yourMessage.text" @keyup.enter="sendMessage(currentChat)" type="text" placeholder="Scrivi un messaggio" name="message-input" id="message-input">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js" integrity="sha512-Nw0Abk+Ywwk5FzYTxtB70/xJRiCI0S2ORbXI3VBlFpKJ44LM6cW2WxIIolyKEOxOuMI90GIfXdlZRJepu7cczA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/main.js"></script>
 </body>

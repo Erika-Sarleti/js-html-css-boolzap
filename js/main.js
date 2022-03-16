@@ -29,6 +29,11 @@ const app = new Vue({
     el: '.app',
     data:{
         currentChat: 0,
+        yourMessage:{
+            date: '10/01/2020 15:30:55',
+            text:'',
+            status: 'sent',
+        },
         contacts:[
             {
                 name:'Michele',
@@ -113,7 +118,10 @@ const app = new Vue({
     methods: {
         selectChat(i){
            this.currentChat = i 
-        }
+        },
+        sendMessage(currentChat){
+            this.contacts[currentChat].push(this.yourMessage)
+        },
     }
 })
 
